@@ -16,3 +16,4 @@ rootRoute.use("/image", imageRoutes);
 //define authen
 rootRoute.use("/auth", authRoutes);
 export default rootRoute;
+
