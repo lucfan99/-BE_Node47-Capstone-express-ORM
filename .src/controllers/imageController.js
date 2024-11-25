@@ -3,15 +3,19 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 const getListImages = async (req, res) => {
-  let data = await prisma.hinh_anh.findMany();
-  return res.status(200).json(data);
+  try {
+    let data = await prisma.hinh_anh.findMany();
+    return res.status(200).json(data);
+  } catch (error) {
+    return res.status(500).json({ message: "Internal Server Error", error });
+  }
 };
 
 const getInfoImages = async (req, res) => {
   try {
     let { id } = req.params;
-    let data = await prisma.hinh_anh.findMany({
-      where: { nguoi_dung_id: id },
+    let data = await prisma.hinh_anh.findFirst({
+      where: { nguoi_dung_id: parseInt(id) },
     });
     return res.status(200).json(data);
   } catch (error) {
@@ -22,9 +26,9 @@ const getInfoImages = async (req, res) => {
 const getComentImages = async (req, res) => {
   try {
     let { id } = req.params;
-    let data = await prisma.binh_luan.findMany({
+    let data = await prisma.binh_luan.findFirst({
       where: {
-        hinh_id: id,
+        hinh_id: parseInt(id),
       },
     });
     return res.status(200).json(data);
@@ -36,9 +40,9 @@ const getComentImages = async (req, res) => {
 const getSaveImages = async (req, res) => {
   try {
     let { id } = req.params;
-    let data = await prisma.hinh_anh.findUnique({
+    let data = await prisma.luu_anh.findFirst({
       where: {
-        hinh_id: id,
+        hinh_id: parseInt(id),
       },
     });
     if (data) {
@@ -58,7 +62,7 @@ const getListImgByName = async (req, res) => {
       where: {
         ten_hinh: {
           contains: name,
-          mode: "insensitive",
+          // mode: "insensitive",// cần cải thiện thêm để tìm kiếm kết quả gần đúng nhất
         },
       },
     });
