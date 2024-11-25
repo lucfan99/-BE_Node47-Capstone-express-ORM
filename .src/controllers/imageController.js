@@ -5,8 +5,9 @@ const getListImages = async (req, res) => {
   let data = await prisma.hinh_anh.findMany();
   return res.status(200).json(data);
 };
-const { name } = req.params;
+
 const getListImgByName = async (req, res) => {
+  const { name } = req.params;
   try {
     const data = await prisma.hinh_anh.findMany({
       where: {
