@@ -102,7 +102,6 @@ const changePassword = async (req, res) => {
     const validCode = await prisma.code.findFirst({
       where: {
         code,
-        email,
       },
     });
     if (!validCode) {
@@ -112,7 +111,7 @@ const changePassword = async (req, res) => {
     await prisma.nguoi_dung.update({
       where: { email },
       data: {
-        password: hashedPassword, // Đổi `password` theo field thực tế trong database của bạn
+        mat_khau: hashedPassword,
       },
     });
     await prisma.code.delete({
@@ -120,7 +119,6 @@ const changePassword = async (req, res) => {
     });
     return res.status(200).json({ message: "Password changed successfully" });
   } catch (error) {
-    console.error("Error changing password:", error);
     return res.status(500).json({ message: "Error changing password" });
   }
 };

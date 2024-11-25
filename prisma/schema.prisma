@@ -28,11 +28,24 @@ model hinh_anh {
   mo_ta         String?     @db.VarChar(255)
   binh_luan     binh_luan[]
   nguoi_dung    nguoi_dung? @relation(fields: [nguoi_dung_id], references: [nguoi_dung_id], onDelete: NoAction, onUpdate: NoAction, map: "hinh_anh_ibfk_1")
-  luu_anh       luu_anh[]   @ignore
+  luu_anh       luu_anh[]
 
   @@index([nguoi_dung_id], map: "nguoi_dung_id")
 }
 
+
+
+model nguoi_dung {
+  nguoi_dung_id Int         @id @default(autoincrement())
+  email         String?     @db.VarChar(100)
+  mat_khau      String?     @db.VarChar(100)
+  ho_ten        String?     @db.VarChar(100)
+  tuoi          Int?
+  anh_dai_dien  String?     @db.VarChar(255)
+  binh_luan     binh_luan[]
+  hinh_anh      hinh_anh[]
+  luu_anh       luu_anh[]
+}
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model luu_anh {
   nguoi_dung_id Int?
@@ -45,15 +58,8 @@ model luu_anh {
   @@index([nguoi_dung_id], map: "nguoi_dung_id")
   @@ignore
 }
-
-model nguoi_dung {
-  nguoi_dung_id Int         @id @default(autoincrement())
-  email         String?     @db.VarChar(100)
-  mat_khau      String?     @db.VarChar(100)
-  ho_ten        String?     @db.VarChar(100)
-  tuoi          Int?
-  anh_dai_dien  String?     @db.VarChar(255)
-  binh_luan     binh_luan[]
-  hinh_anh      hinh_anh[]
-  luu_anh       luu_anh[]   @ignore
+model code {
+  id   Int       @id @default(autoincrement())
+  code String    @db.VarChar(50)
+  date DateTime? @default(now()) @db.DateTime(0)
 }
