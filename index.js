@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(rootRoute);
 //define port cho BE
-app.listen(5000, () => {
+app.listen(8080, () => {
 
   console.log("Starting with port 8080");
 });
