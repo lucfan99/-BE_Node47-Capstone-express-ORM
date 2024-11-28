@@ -72,7 +72,9 @@ const addImages = async (req, res) => {
         nguoi_dung_id
       }
     })
+
     if(!nguoiDung){
+    
       return res.status(400).json({message: "can not find user"})
     }
     const newImg = await prisma.hinh_anh.create({
