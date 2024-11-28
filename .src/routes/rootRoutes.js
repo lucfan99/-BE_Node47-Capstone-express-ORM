@@ -4,6 +4,7 @@ import imageRoutes from "./imageRoutes.js";
 import authRoutes from "./authRoutes.js";
 // import commandRoutes from "./commandRoutes.js";
 const rootRoute = express.Router();
+
 // define user
 rootRoute.use("/user", userRoutes);
 
@@ -16,4 +17,3 @@ rootRoute.use("/image", imageRoutes);
 //define authen
 rootRoute.use("/auth", authRoutes);
 export default rootRoute;
-

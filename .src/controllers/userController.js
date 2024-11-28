@@ -53,4 +53,22 @@ const savecomment = async (req, res) => {
     return res.status(500).json({ message: "fail" });
   }
 };
-export { getInfoUser, createUser, savecomment };
+const updateInfoUser = async (req, res) => {
+  let { email, mat_khau, ho_ten, tuoi } = req.body;
+  let checkUser = await prisma.nguoi_dung.findFirst({
+    where: { email },
+  });
+  if (!checkUser) {
+    return res.status(400).json({ message: "Email is wrong" });
+  }
+  await prisma.nguoi_dung.update({
+    data: {
+      mat_khau,
+      ho_ten,
+      tuoi: Number(tuoi),
+    },
+    where: { nguoi_dung_id: checkUser.nguoi_dung_id },
+  });
+  return res.status(200).json({ message: "Update Info User Successfully" });
+};
+export { getInfoUser, createUser, savecomment, updateInfoUser };
