@@ -32,6 +32,7 @@ CREATE TABLE binh_luan (
 
 
 CREATE TABLE luu_anh (
+    luu_anh_id INT PRIMARY KEY AUTO_INCREMENT,
     nguoi_dung_id INT,
     FOREIGN KEY(nguoi_dung_id) REFERENCES nguoi_dung(nguoi_dung_id),
     hinh_id INT,
@@ -95,20 +96,28 @@ VALUES
 (14, 14, '2024-11-14', 'Nên chia sẻ thêm về bức ảnh này.'),
 (15, 15, '2024-11-15', 'Hoàn hảo.');
 
-INSERT INTO luu_anh (nguoi_dung_id, hinh_id, ngay_luu)
+
+INSERT INTO luu_anh (luu_anh_id,nguoi_dung_id, hinh_id, ngay_luu)
 VALUES
-(1, 1, '2024-11-01'),
-(2, 2, '2024-11-02'),
-(3, 3, '2024-11-03'),
-(4, 4, '2024-11-04'),
-(5, 5, '2024-11-05'),
-(6, 6, '2024-11-06'),
-(7, 7, '2024-11-07'),
-(8, 8, '2024-11-08'),
-(9, 9, '2024-11-09'),
-(10, 10, '2024-11-10'),
-(11, 11, '2024-11-11'),
-(12, 12, '2024-11-12'),
-(13, 13, '2024-11-13'),
-(14, 14, '2024-11-14'),
-(15, 15, '2024-11-15');
+(1,1, 1, '2024-11-01'),
+(2,2, 2, '2024-11-02'),
+(3,3, 3, '2024-11-03'),
+(4,4, 4, '2024-11-04'),
+(5,5, 5, '2024-11-05'),
+(6,6, 6, '2024-11-06'),
+(7,7, 7, '2024-11-07'),
+(8,8, 8, '2024-11-08'),
+(9, 9,9, '2024-11-09'),
+(10, 10,10, '2024-11-10'),
+(11,11, 11, '2024-11-11'),
+(12, 12,12, '2024-11-12'),
+(13, 13,13, '2024-11-13'),
+(14, 14,14, '2024-11-14'),
+(15, 15,15, '2024-11-15');
+
+
+CREATE TABLE code (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    code VARCHAR(50) NOT NULL,
+    date DATETIME DEFAULT CURRENT_TIMESTAMP
+);
