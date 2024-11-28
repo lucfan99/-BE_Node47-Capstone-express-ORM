@@ -68,9 +68,10 @@ const updateInfoUser = async (req, res) => {
   if (!checkUser) {
     return res.status(400).json({ message: "Email is wrong" });
   }
+  const hashPass = bcrypt.hashSync(mat_khau, 10);
   await prisma.nguoi_dung.update({
     data: {
-      mat_khau,
+      mat_khau: hashPass,
       ho_ten,
       tuoi: Number(tuoi),
     },

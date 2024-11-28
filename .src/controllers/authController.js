@@ -47,7 +47,7 @@ const signUp = async (req, res) => {
     to: email,
     subject: `Welcome ${ho_ten} come to Our CapstoneImage`,
     html: `<h1>
-        Let post daily image on Pinterest for sharing your life
+        Let post your image to sharing your life with us 
     </h1>`,
   };
 
