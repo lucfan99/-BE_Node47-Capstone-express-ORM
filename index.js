@@ -8,7 +8,6 @@ app.use(express.json());
 app.use(rootRoute);
 //define port cho BE
 app.listen(8080, () => {
-
   console.log("Starting with port 8080");
 });
 
