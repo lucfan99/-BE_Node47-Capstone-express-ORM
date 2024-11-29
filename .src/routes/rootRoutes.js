@@ -2,6 +2,7 @@ import express from "express";
 import userRoutes from "./userRoutes.js";
 import imageRoutes from "./imageRoutes.js";
 import authRoutes from "./authRoutes.js";
+import { middlewareToken } from "../config/jwt.js";
 // import commandRoutes from "./commandRoutes.js";
 const rootRoute = express.Router();
 
