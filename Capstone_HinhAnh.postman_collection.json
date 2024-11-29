@@ -1,0 +1,479 @@
+{
+	"info": {
+		"_postman_id": "8bd4d043-0e80-4ed4-afba-28e2680f2774",
+		"name": "Capstone_HinhAnh",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38437046"
+	},
+	"item": [
+		{
+			"name": "trang chủ",
+			"item": [
+				{
+					"name": "getListImage",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/image/get-list-images",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"image",
+								"get-list-images"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get list image by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/image/get-list-img-by-name/anh 1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"image",
+								"get-list-img-by-name",
+								"anh 1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "trang quản lý ảnh",
+			"item": [
+				{
+					"name": "get info user by user_id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJJZCI6MTd9LCJpYXQiOjE3MzI3MjUwODksImV4cCI6MTczMjk4NDI4OX0.RWaQv9rWVnW1ORBS0DSuHp5IIayS-WVz0883JW9CVbI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/user/get-info-user/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"get-info-user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get created images by user_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/image/get-created-images/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"image",
+								"get-created-images",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get saved images by user_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/image/get-saved-images/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"image",
+								"get-saved-images",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete image",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJJZCI6MTl9LCJpYXQiOjE3MzI5MDQyNDAsImV4cCI6MTczMzE2MzQ0MH0.IYOog-B7emJduNT5uZ930hzObqUFRMk67n60xBlZQE0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/image/delete-created-image/17",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"image",
+								"delete-created-image",
+								"17"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"luottrenconsong2@gmail.com\",\r\n    \"mat_khau\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sign-up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"luottrenconsong2@gmail.com\",\r\n    \"mat_khau\":\"123456\",\r\n    \"ho_ten\":\"Lực nè\",\r\n    \"tuoi\":\"24\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/sign-up",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forgot-password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"email\":\"luottrenconsong2@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/forgot-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change-password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/change-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "trang chi tiết",
+			"item": [
+				{
+					"name": "get info by hinh_id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJJZCI6MTl9LCJpYXQiOjE3MzI5MDQyNDAsImV4cCI6MTczMzE2MzQ0MH0.IYOog-B7emJduNT5uZ930hzObqUFRMk67n60xBlZQE0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/image/get-info-images/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"image",
+								"get-info-images",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get binhluan by hinh_id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJJZCI6MTl9LCJpYXQiOjE3MzI5MDQyNDAsImV4cCI6MTczMzE2MzQ0MH0.IYOog-B7emJduNT5uZ930hzObqUFRMk67n60xBlZQE0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/image/get-comment-images/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"image",
+								"get-comment-images",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get save image",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJJZCI6MTl9LCJpYXQiOjE3MzI5MDQyNDAsImV4cCI6MTczMzE2MzQ0MH0.IYOog-B7emJduNT5uZ930hzObqUFRMk67n60xBlZQE0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/image/get-save-images/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"image",
+								"get-save-images",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post binh luan",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJJZCI6MTl9LCJpYXQiOjE3MzI5MDQyNDAsImV4cCI6MTczMzE2MzQ0MH0.IYOog-B7emJduNT5uZ930hzObqUFRMk67n60xBlZQE0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nguoi_dung_id\": 1,\r\n    \"hinh_id\":3,\r\n    \"ngay_binh_luan\":\"2024-11-20\",\r\n    \"noi_dung\":\"rat dep\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/save-comment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"save-comment"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "trang thêm ảnh",
+			"item": [
+				{
+					"name": "add Image",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJJZCI6MTl9LCJpYXQiOjE3MzI5MDQyNDAsImV4cCI6MTczMzE2MzQ0MH0.IYOog-B7emJduNT5uZ930hzObqUFRMk67n60xBlZQE0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nguoi_dung_id\":5,\r\n    \"ten_hinh\":\"bảnh\",\r\n    \"duong_dan\":\"https://letsenhance.io/static/03620c83508fc72c6d2b218c7e304ba5/11499/UpscalerAfter.jpg\",\r\n    \"mo_ta\":\"bảnh của bảnh\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/image/add-image",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"image",
+								"add-image"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "chỉnh sửa thông tin cá nhân",
+			"item": [
+				{
+					"name": "update info user",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJJZCI6MTd9LCJpYXQiOjE3MzI3MjEyOTYsImV4cCI6MTczMjk4MDQ5Nn0.rk_fSFlYDDIGJxJlicujGcrFiISQLSKFNAkAwFtH2dA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"luottrenconsong2@gmail.com\",\r\n    \"mat_khau\":\"1234\",\r\n    \"ho_ten\":\"Xuan Luc\",\r\n    \"tuoi\":25\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/update-info-user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"update-info-user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

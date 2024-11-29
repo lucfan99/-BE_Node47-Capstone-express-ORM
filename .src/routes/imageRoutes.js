@@ -33,12 +33,12 @@ imageRoutes.get(
 imageRoutes.get("/get-save-images/:hinh_id", middlewareToken, getSaveImages);
 
 // post thêm một ảnh của user
-imageRoutes.post("/add-imanges", middlewareToken, addImages);
+imageRoutes.post("/add-image", middlewareToken, addImages);
 
 // get danh sách ảnh đã tạo theo user id
 imageRoutes.get("/get-created-images/:id", getCreatedImages);
 // get danh sách ảnh đã lưu(save) theo userid
 imageRoutes.get("/get-saved-images/:id", getSavedImages);
 // xóa ảnh đã tạo theo hinh_id
-imageRoutes.delete("/delete-created-image/:id", deleteImage);
+imageRoutes.delete("/delete-created-image/:id", middlewareToken, deleteImage);
 export default imageRoutes;

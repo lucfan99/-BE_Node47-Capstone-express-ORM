@@ -16,7 +16,7 @@ const getInfoImages = async (req, res) => {
 
     const data = await prisma.hinh_anh.findFirst({
       where: {
-        hinh_id: parseInt(hinh_id, 10), 
+        hinh_id: parseInt(hinh_id, 10),
       },
       select: {
         nguoi_dung_id: true,
@@ -24,7 +24,7 @@ const getInfoImages = async (req, res) => {
         ten_hinh: true,
         duong_dan: true,
         mo_ta: true,
-        nguoi_dung: { 
+        nguoi_dung: {
           select: {
             email: true,
           },
@@ -32,24 +32,23 @@ const getInfoImages = async (req, res) => {
       },
     });
 
-    return res.status(200).json(data); 
+    return res.status(200).json(data);
   } catch (error) {
-    console.error("Error:", error); 
+    console.error("Error:", error);
     return res.status(500).json({ message: "Get info images failed" });
-    }
+  }
 };
-
 
 const getComentImages = async (req, res) => {
   try {
-    let { hinh_id } = req.params; 
-    hinh_id = parseInt(hinh_id, 10);  
-  let data = await prisma.binh_luan.findFirst({
-    where: {
-      hinh_id
-    }
-  })
-  return res.status(200).json(data)
+    let { hinh_id } = req.params;
+    hinh_id = parseInt(hinh_id, 10);
+    let data = await prisma.binh_luan.findFirst({
+      where: {
+        hinh_id,
+      },
+    });
+    return res.status(200).json(data);
   } catch (error) {
     return res.status(500).json({ message: "get comment images fail" });
   }
@@ -64,17 +63,19 @@ const getSaveImages = async (req, res) => {
         hinh_id: parseInt(hinh_id, 10),
       },
       select: {
-        hinh_id: true
+        hinh_id: true,
       },
     });
     if (imageExists) {
-      return res.status(200).json({ message: "images has been save"});
+      return res.status(200).json({ message: "images has been save" });
     } else {
-      return res.status(200).json({ message: "images has not been save"});
+      return res.status(400).json({ message: "images has not been save" });
     }
   } catch (error) {
-    console.error('Error:', error);
-    return res.status(500).json({ message: "Failed to check if image is saved" });
+    console.error("Error:", error);
+    return res
+      .status(500)
+      .json({ message: "Failed to check if image is saved" });
   }
 };
 
@@ -88,7 +89,7 @@ const addImages = async (req, res) => {
     });
 
     if (!nguoiDung) {
-      return res.status(400).json({ message: "can not find user" });
+      return res.status(401).json({ message: "can not find user" });
     }
     const newImg = await prisma.hinh_anh.create({
       data: {
